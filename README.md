@@ -18,3 +18,4 @@ Learn data science, automation, build websites, games and apps!
 - Day 11: Blackjack Capstone Project
 - Day 12: Scope & Number Guessing Game
 - Day 13: Debugiing: How to Find and Fix Errors in you Code
+- Day 14: Higher - Lower Game 
