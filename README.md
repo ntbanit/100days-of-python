@@ -20,3 +20,8 @@ Learn data science, automation, build websites, games and apps!
 
 ## Day 15 to ?? - INTERMEDIATE LEVEL
 - Day 15: Setup Local development environment & the Coffee Machine code
+- Day 16: Object Oriented Programming (OOP)
+- Day 17: The Quiz Project & the Benefits of OOP 
+- Day 18: Turtle & the Graphical User Interface (GUI)
+- Day 19: Instances, State and Higher Order Functions
+- Day 20: Build the Snake Game Part 1: Animation & Coordinates
