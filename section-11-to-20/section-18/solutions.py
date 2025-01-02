@@ -27,6 +27,11 @@ def solution_dashed_line():
 import random
 
 color_list = []
+def reset_random_color():
+    global color_list
+    color_list = []
+    turtle.colormode(255)
+
 def random_color():
     global color_list
     while True:
@@ -43,7 +48,7 @@ def random_color():
 
 # video 132: self code
 def draw_complex():
-    turtle.colormode(255)
+    reset_random_color()
     for edge_cnt in range(3, 11):
         random_color()
         angle = 360 / edge_cnt
@@ -52,6 +57,38 @@ def draw_complex():
             timmy.right(angle)
 
 # video 133: self code
-def random_walk():
-    # TODO: 1.
-    pass
+"""
+1. random movements North, East, South, West
+same distance (color) but it can at any point choose 
+which direction it wants to go out of the four
+eg: distance 3 : red - up left up, blue down down right ...
+2. thickness the line 
+3. speed up the turtle to draw much faster 
+"""
+def random_walk(distance, limit):
+    timmy.pensize(10)
+    timmy.speed("fastest")
+    random_direction = [0, 90, 180, 270]
+    reset_random_color()
+    for i in range(limit):
+        random_color()
+        for j in range(distance):
+            timmy.forward(30)
+            timmy.right(random.choice(random_direction))
+
+"""
+video 135 : 
+draw a number of circles with a radius of 100 in distance 
+(r = 100) -> C = 2 * pi * r
+in same 
+"""
+def draw_spirograph(moving):
+    timmy.speed("fastest")
+    reset_random_color()
+    radius = 100
+    start = 0
+    while start < 360 :
+        random_color()
+        timmy.circle(radius)
+        timmy.right(moving)
+        start += moving
