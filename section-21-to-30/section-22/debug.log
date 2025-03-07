@@ -1,0 +1,57 @@
+Right paddle distance: 45.27692569068709 ycor: 180
+Left paddle distance: 730.513518013185 ycor: 0
+Ball ycor: 225 -> y distance between ball and right paddle is 45, ball is bouncing -> check in move function 
+Right paddle distance: 41.23105625617661 ycor: 180
+Left paddle distance: 724.2237223399962 ycor: 0
+Ball ycor: 220 -> y distance between ball and right paddle is 41, ball is bouncing 
+Right paddle distance: 35.35533905932738 ycor: 180
+Left paddle distance: 727.4957044546724 ycor: 0
+Ball ycor: 215
+Right paddle distance: 31.622776601683793 ycor: 180
+Left paddle distance: 721.2489168102785 ycor: 0
+Ball ycor: 210
+Right paddle distance: 25.495097567963924 ycor: 180
+Left paddle distance: 724.6033397659716 ycor: 0
+Ball ycor: 205
+Right paddle distance: 22.360679774997898 ycor: 180
+Left paddle distance: 718.4010022264724 ycor: 0
+Ball ycor: 200
+Right paddle distance: 15.811388300841896 ycor: 180
+Left paddle distance: 721.8379319487166 ycor: 0
+Ball ycor: 195
+Right paddle distance: 14.142135623730951 ycor: 180
+Left paddle distance: 715.6814934033156 ycor: 0
+Ball ycor: 190
+Right paddle distance: 7.0710678118654755 ycor: 180
+Left paddle distance: 719.200945494373 ycor: 0
+Ball ycor: 185
+Right paddle distance: 10.0 ycor: 180
+Left paddle distance: 713.0918594402827 ycor: 0
+Ball ycor: 180
+Right paddle distance: 7.0710678118654755 ycor: 180
+Left paddle distance: 716.6937979360503 ycor: 0
+Ball ycor: 175
+Right paddle distance: 14.142135623730951 ycor: 180
+Left paddle distance: 710.6335201775947 ycor: 0
+Ball ycor: 170
+Right paddle distance: 15.811388300841896 ycor: 180
+Left paddle distance: 714.3178564196754 ycor: 0
+Ball ycor: 165
+Right paddle distance: 22.360679774997898 ycor: 180
+Left paddle distance: 708.3078426785912 ycor: 0
+Ball ycor: 160
+Right paddle distance: 25.495097567963924 ycor: 180
+Left paddle distance: 712.07443431147 ycor: 0
+Ball ycor: 155
+Right paddle distance: 31.622776601683793 ycor: 180
+Left paddle distance: 706.1161377563892 ycor: 0
+Ball ycor: 150
+Right paddle distance: 35.35533905932738 ycor: 180
+Left paddle distance: 709.964787859229 ycor: 0
+Ball ycor: 145
+Right paddle distance: 41.23105625617661 ycor: 180
+Left paddle distance: 704.0596565632773 ycor: 0
+Ball ycor: 140
+Right paddle distance: 45.27692569068709 ycor: 180
+Left paddle distance: 707.9901129253147 ycor: 0
+Ball ycor: 135
