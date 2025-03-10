@@ -4,6 +4,11 @@ from snake import Snake
 from food import Food
 from score_board import ScoreBoard
 
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
