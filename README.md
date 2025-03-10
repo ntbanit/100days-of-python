@@ -28,5 +28,10 @@ Learn data science, automation, build websites, games and apps!
 - Day 21: Build the Snake Game Part 2: Inheritance & List Slicing
 - Day 22: Build the Pong Game
 - Day 23: Build the Turtle Crossing Game **Capstone Project**
+- Day 24: Files, Directories and Paths 
+- Day 25: CSV Data and Pandas Library 
+- Day 26: List Comprehension and the NATO Alphabet
+- Day 27: Tkinter, *args, **kwargs and create GUI Program
+
 
 ## Day 41 to 58 - WEB FOUNDATION
