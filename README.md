@@ -32,6 +32,15 @@ Learn data science, automation, build websites, games and apps!
 - Day 25: CSV Data and Pandas Library 
 - Day 26: List Comprehension and the NATO Alphabet
 - Day 27: Tkinter, *args, **kwargs and create GUI Program
+- Day 28: Tkinter, Dynamic Typing & the Pomodoro GUI 
+- Day 29: Build the Password Manager GUI App with Tkinter
+- Day 30: Errors, Exceptions and JSON Data : Improving the Password 
+- Day 31: Flash Card App **Capstone Project**
 
 
 ## Day 41 to 58 - WEB FOUNDATION
+
+## Day 59 to 81 - ADVANCED
+
+## Day 82 to 101 - PROFESSIONAL 
+
