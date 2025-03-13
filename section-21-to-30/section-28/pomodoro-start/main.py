@@ -9,17 +9,25 @@ GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 CHECK_MARK="✔"
-WORK_MIN = 0.2
-SHORT_BREAK_MIN = 0.1
-LONG_BREAK_MIN = 0.1
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 15
 
 work_sec = int(WORK_MIN * 60)
 short_break_sec = int(SHORT_BREAK_MIN * 60)
 long_break_sec = int(LONG_BREAK_MIN * 60)
 reps = 0
 is_stop_timer = False
+is_break = True
 checkmark_text = ""
 # ---------------------------- TIMER RESET ------------------------------- # 
+def focus_window(option):
+    if option == "on":
+        window.deiconify()
+        window.focus_force()
+        window.attributes('-topmost', 1)
+    elif option == "off":
+        window.attributes('-topmost', 0)
 
 def reset_timer():
     global reps
@@ -33,52 +41,85 @@ def reset_timer():
     checkmark_text = ""
     checkmark_label.config(text=checkmark_text, fg=GREEN, font=(FONT_NAME, 20), bg=YELLOW)
 
+def skip_break():
+    global reps
+    reps += 1
+    canvas.itemconfig(timer_text, text="00:00")
+    working_time()
+    
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
+def working_time():
+    winsound.Beep(2000, 2000)
+    
+    global is_break
+    is_break = False
+    focus_window("off")
+    skip_break_button.config(state="disabled")
+    countdown_working(work_sec)
+    title_label.config(text="Working Time", fg=GREEN, font=(FONT_NAME, 30), bg=YELLOW)
+    notification.notify(
+        title='Pomodoro',
+        message='Start working now',
+        app_icon=os.path.join(os.path.dirname(__file__), 'tomato.ico'),
+        timeout=10,
+    )
+
+def break_time(break_time, break_title):
+    winsound.Beep(1000, 1000)
+    
+    global is_break
+    is_break = True 
+    focus_window("on")
+    countdown_break(break_time)
+    title_label.config(text=break_title, fg=RED, font=(FONT_NAME, 30), bg=YELLOW)
+    global checkmark_text
+    checkmark_text += CHECK_MARK
+    checkmark_label.config(text=checkmark_text, fg=GREEN, font=(FONT_NAME, 20), bg=YELLOW)
+    skip_break_button.config(state="active") 
+    
 def start_timer():
     global reps
     reps += 1
     global is_stop_timer
     is_stop_timer = False
-    global checkmark_text
-    winsound.Beep(1000, 1000)
+    
     if reps == 8:
-        countdown(long_break_sec)
-        title_label.config(text="Long Break", fg=RED, font=(FONT_NAME, 30), bg=YELLOW)
-        checkmark_text += CHECK_MARK
-        checkmark_label.config(text=checkmark_text, fg=GREEN, font=(FONT_NAME, 20), bg=YELLOW)
-        
+        break_time(long_break_sec, "Long Break")
     elif reps % 2 == 1:
-        countdown(work_sec)
-        title_label.config(text="Working Time", fg=GREEN, font=(FONT_NAME, 30), bg=YELLOW)
-        notification.notify(
-            title='Pomodoro',
-            message='Start working now',
-            app_icon=os.path.join(os.path.dirname(__file__), 'tomato.ico'),
-            timeout=10,
-        )
+        working_time()
     else:
-        # Display checkmark 
-        checkmark_text += CHECK_MARK
-        checkmark_label.config(text=checkmark_text, fg=GREEN, font=(FONT_NAME, 20), bg=YELLOW)
-        countdown(short_break_sec)
-        title_label.config(text="Short Break", fg=PINK, font=(FONT_NAME, 30), bg=YELLOW)
-        
-    start_button.config(state="disabled")
-    
-    
+        break_time(short_break_sec, "Short Break")
+    start_button.config(state="disabled")   
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- 
-def countdown(count):
+def countdown_break(count):
+    if is_stop_timer :
+        return
+    if not is_break :
+        return 
+    canvas.itemconfig(timer_text, text=f"{count // 60:02d}:{count % 60:02d}")
+    if count > 0:
+        window.after(1000, countdown_break, count - 1)
+    elif reps < 8:
+        start_timer()
+    else:
+        winsound.Beep(1000, 1000)
+        title_label.config(text="Well Done! You di it!", fg=RED, font=(FONT_NAME, 20), bg=YELLOW)
+        skip_break_button.config(state="disabled")
+    
+def countdown_working(count):
     if is_stop_timer :
         return
     # print(f"countdown {count}")
     canvas.itemconfig(timer_text, text=f"{count // 60:02d}:{count % 60:02d}")
     if count > 0:
-        window.after(1000, countdown, count - 1)
+        window.after(1000, countdown_working, count - 1)
     elif reps < 8:
         start_timer()
     else:
+        winsound.Beep(1000, 1000)
         title_label.config(text="Well Done! You did it!", fg=RED, font=(FONT_NAME, 20), bg=YELLOW)
+        skip_break_button.config(state="disabled")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -97,6 +138,10 @@ title_label.grid(row=0, column=1)
 
 start_button = Button(text="Start", command=start_timer, bg=YELLOW, fg=RED, font=(FONT_NAME, 15))
 start_button.grid(row=2, column=0)
+
+skip_break_button = Button(text="Skip Break Time", command=skip_break, bg=YELLOW, fg=RED, font=(FONT_NAME, 10))
+skip_break_button.grid(row=4, column=1)
+skip_break_button.config(state="disabled")
 
 reset_button = Button(text="Reset", command=reset_timer, bg=YELLOW, fg=RED, font=(FONT_NAME, 15))
 reset_button.grid(row=2, column=2)
