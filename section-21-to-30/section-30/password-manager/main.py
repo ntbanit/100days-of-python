@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import string
+import json
 
 font_name=("Consolas", 8)
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -36,18 +37,30 @@ def add_password():
     website = website_entry.get()
     username = username_entry.get()
     password = password_entry.get()
+    new_data = {
+        website :{
+            "username": username,
+            "password": password
+        }
+    }
 
-    if len(website) == 0 or len(password) == 0:
-        messagebox.showwarning(title="Oops", message="Please don't leave any fields empty!")
-    else:
-        is_ok = messagebox.askokcancel(title=website, 
-                                       message=f"These are the details entered: \nEmail: {username} "
-                                               f"\nPassword: {password} \nIs it ok to save?")
-        if is_ok:
-            with open("data.txt", "a") as data_file:
-                data_file.write(f"{website} | {username} | {password}\n")
-            website_entry.delete(0, END)
-            password_entry.delete(0, END)
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+    except (FileNotFoundError, json.JSONDecodeError) :
+        with open("data.json", mode="w") as file:
+            json.dump({}, file)
+        data = {}
+
+    data.update(new_data)
+
+    with open("data.json", "w") as data_file:
+        json.dump(data, data_file, indent=4)
+
+    website_entry.delete(0, END)
+    password_entry.delete(0, END)
+    messagebox.showinfo(title="Success", message="Password saved successfully!")
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager") 

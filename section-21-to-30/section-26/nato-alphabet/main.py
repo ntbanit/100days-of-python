@@ -22,12 +22,21 @@ import pandas
 
 #TODO 1. Create a dictionary in this format:
 nato_df = pandas.read_csv("nato_phonetic_alphabet.csv")
-dict = nato_df.to_dict(orient="records")
+my_dict = nato_df.to_dict(orient="records")
 # print(dict)
-format_dict = {item["letter"]: item["code"] for item in dict}
+format_dict = {item["letter"]: item["code"] for item in my_dict}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-word = input("Enter a word: ").upper()
-word_codes = [format_dict[letter] for letter in word]
-print(word_codes)
+while True:
+    word = input("Enter a word: ").upper()
+    try:
+        # Remove duplicates while preserving order
+        unique_word = ''.join(dict.fromkeys(word))
+        word_codes = [format_dict[letter] for letter in unique_word]
+        # print(f"Original word: {word}")
+        # print(f"Word with duplicates removed: {unique_word}")
+        print(f"NATO phonetic codes: {word_codes}")
+        break 
+    except KeyError:
+        print("Sorry. Please try again with only alphabet letters.")
 
