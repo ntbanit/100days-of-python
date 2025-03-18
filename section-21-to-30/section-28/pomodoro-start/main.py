@@ -10,8 +10,12 @@ YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 CHECK_MARK="✔"
 WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 15
+SHORT_BREAK_MIN = 1
+# Long Break each 2 hours 
+LONG_BREAK_MIN = 10
+# 8 sections for 2 hours, 16 for 4 hours 
+TOTAL_SECTIONS = 16
+LONG_BREAK_SECTION = 8
 
 work_sec = int(WORK_MIN * 60)
 short_break_sec = int(SHORT_BREAK_MIN * 60)
@@ -49,7 +53,7 @@ def skip_break():
     
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def working_time():
-    winsound.Beep(2000, 2000)
+    winsound.Beep(1000, 1000)
     
     global is_break
     is_break = False
@@ -65,7 +69,7 @@ def working_time():
     )
 
 def break_time(break_time, break_title):
-    winsound.Beep(1000, 1000)
+    winsound.Beep(1111, 1111)
     
     global is_break
     is_break = True 
@@ -83,7 +87,7 @@ def start_timer():
     global is_stop_timer
     is_stop_timer = False
     
-    if reps == 8:
+    if reps % LONG_BREAK_SECTION == 0:
         break_time(long_break_sec, "Long Break")
     elif reps % 2 == 1:
         working_time()
@@ -100,11 +104,11 @@ def countdown_break(count):
     canvas.itemconfig(timer_text, text=f"{count // 60:02d}:{count % 60:02d}")
     if count > 0:
         window.after(1000, countdown_break, count - 1)
-    elif reps < 8:
+    elif reps < TOTAL_SECTIONS:
         start_timer()
     else:
-        winsound.Beep(1000, 1000)
-        title_label.config(text="Well Done! You di it!", fg=RED, font=(FONT_NAME, 20), bg=YELLOW)
+        winsound.Beep(1414, 1414)
+        title_label.config(text="Well Done! You did it!", fg=RED, font=(FONT_NAME, 20), bg=YELLOW)
         skip_break_button.config(state="disabled")
     
 def countdown_working(count):
@@ -114,10 +118,10 @@ def countdown_working(count):
     canvas.itemconfig(timer_text, text=f"{count // 60:02d}:{count % 60:02d}")
     if count > 0:
         window.after(1000, countdown_working, count - 1)
-    elif reps < 8:
+    elif reps < TOTAL_SECTIONS:
         start_timer()
     else:
-        winsound.Beep(1000, 1000)
+        winsound.Beep(1414, 1414)
         title_label.config(text="Well Done! You did it!", fg=RED, font=(FONT_NAME, 20), bg=YELLOW)
         skip_break_button.config(state="disabled")
 

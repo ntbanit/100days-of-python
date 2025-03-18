@@ -36,7 +36,7 @@ Learn data science, automation, build websites, games and apps!
 - Day 29: Build the Password Manager GUI App with Tkinter
 - Day 30: Errors, Exceptions and JSON Data : Improving the Password 
 - Day 31: Flash Card App **Capstone Project**
-- Da
+- Day 32: Send Email (smtplib) & Manage Dates (datetime)
 
 ## Day 41 to 58 - WEB FOUNDATION
 
