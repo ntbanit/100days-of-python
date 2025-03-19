@@ -31,7 +31,21 @@ def generate_password():
     window.clipboard_clear()
     window.clipboard_append(password)
     window.update()
+# ---------------------------- SEARCH PASSWORD ----------------------------- #
+def search_password():
+    website = website_entry.get()
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
 
+        if website in data:
+            username = data[website]["username"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Username: {username}\nPassword: {password}")
+        else:
+            messagebox.showerror(title="Error", message=f"No details for {website} found.")
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        messagebox.showerror(title="Error", message=f"Unable to read data.json: {e}")
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def add_password():
     website = website_entry.get()
@@ -79,8 +93,11 @@ label3 = Label(text="Password:")
 label3.grid(row=3, column=0)
 
 website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2, sticky="EW")
+website_entry.grid(row=1, column=1, sticky="EW")
 website_entry.focus()
+
+search_button = Button(text="Search", command=search_password, width=15)
+search_button.grid(row=1, column=2, sticky="EW")
 
 username_entry = Entry(width=35)
 username_entry.grid(row=2, column=1, columnspan=2, sticky="EW")
