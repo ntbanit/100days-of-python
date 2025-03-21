@@ -15,3 +15,7 @@ result_lines = read_file('test_data_input.txt')
 with open('test_data_output.txt', 'w') as file:
     for line in result_lines:
         file.write(f'{line}\n')
+
+
+
+        
