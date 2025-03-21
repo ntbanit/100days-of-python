@@ -1,4 +1,4 @@
-﻿English,IPA
+English,IPA
 the,/ðʌ/
 of,/ʌv/
 and,/ʌnd/
