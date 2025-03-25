@@ -37,6 +37,10 @@ Learn data science, automation, build websites, games and apps!
 - Day 30: Errors, Exceptions and JSON Data : Improving the Password 
 - Day 31: Flash Card App **Capstone Project**
 - Day 32: Send Email (smtplib) & Manage Dates (datetime)
+- Day 33: API Endpoints & Parameters - ISS Overhead Notifier
+- Day 34: API Practices - GUI Quiz App
+- Day 35: API Keys & Authentications & Environment Variables - Send SMS 
+- Day 36: Stock Trading New Alert Project
 
 ## Day 41 to 58 - WEB FOUNDATION
 
