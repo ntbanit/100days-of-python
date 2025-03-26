@@ -41,6 +41,8 @@ Learn data science, automation, build websites, games and apps!
 - Day 34: API Practices - GUI Quiz App
 - Day 35: API Keys & Authentications & Environment Variables - Send SMS 
 - Day 36: Stock Trading New Alert Project
+- Day 37: API Post Request & Headers - Habit Tracking Project
+- Day 38: Workout Tracking Project Using Google Sheet 
 
 ## Day 41 to 58 - WEB FOUNDATION
 
