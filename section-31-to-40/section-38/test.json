@@ -1,0 +1,36 @@
+{
+    "exercises": [
+        {
+            "tag_id": 766,
+            "user_input": "weight",
+            "duration_min": 2.07,
+            "met": 3.5,
+            "nf_calories": 8.45,
+            "photo": {
+                "highres": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/766_highres.jpg",
+                "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/766_thumb.jpg",
+                "is_user_uploaded": "False"
+            },
+            "compendium_code": 2054,
+            "name": "weight lifting",
+            "description": "None",
+            "benefits": "None"
+        },
+        {
+            "tag_id": 765,
+            "user_input": "yoga",
+            "duration_min": 10,
+            "met": 3.3,
+            "nf_calories": 38.5,
+            "photo": {
+                "highres": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/765_highres.jpg",
+                "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/765_thumb.jpg",
+                "is_user_uploaded": "False"
+            },
+            "compendium_code": 2180,
+            "name": "yoga",
+            "description": "None",
+            "benefits":"None"
+        }
+    ]
+}
