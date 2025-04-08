@@ -8,6 +8,7 @@ HEADERS = {
 }
 client_id = os.environ.get('CLIENT_ID')
 client_secret = os.environ.get('CLIENT_SECRET')
+print(client_id, client_secret)
 data = {
     'grant_type': 'client_credentials',
     'client_id': f'{client_id}',
@@ -19,13 +20,14 @@ response.raise_for_status()
 data = response.json()
 print(data)
 access_token = data['access_token']
+# access_token = os.environ.get('ACCESS_TOKEN')
 
 print(access_token)
 
 API_ENDPOINT = '/v1/reference-data/locations/cities'
 params = {
     # 'countryCode': 'FR',
-    'keyword': 'Hanoi',
+    'keyword': 'Cần Thơ',
     'max': 1
 }
 HEADERS = {
@@ -38,3 +40,4 @@ data = response.json()
 # print(data)
 import json
 print(json.dumps(data, indent=4))
+print(data['data'][0]['iataCode'])

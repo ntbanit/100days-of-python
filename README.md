@@ -43,8 +43,8 @@ Learn data science, automation, build websites, games and apps!
 - Day 36: Stock Trading New Alert Project
 - Day 37: API Post Request & Headers - Habit Tracking Project
 - Day 38: Workout Tracking Project Using Google Sheet 
-- Day 39:
-- Day 40: 
+- Day 39: Flight Deal Finder Project
+- Day 40: Flight Club Project
 
 ## Day 41 to 58 - WEB FOUNDATION
 

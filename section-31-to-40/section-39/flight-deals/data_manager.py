@@ -25,7 +25,7 @@ class DataManager:
             payload_data = {
                 'price': {
                     'iataCode': item['iataCode'],
-                    
+                    'lowestPrice': item['lowestPrice']
                 }
             }
             response = requests.put(url=f'{API_ENDPOINT}/{item['id']}', headers=HEADERS, json=payload_data, verify=False)
