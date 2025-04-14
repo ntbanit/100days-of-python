@@ -44,9 +44,10 @@ Learn data science, automation, build websites, games and apps!
 - Day 37: API Post Request & Headers - Habit Tracking Project
 - Day 38: Workout Tracking Project Using Google Sheet 
 - Day 39: Flight Deal Finder Project
-- Day 40: Flight Club Project
+- Day 40: Flight Club Project *Skipped*
 
 ## Day 41 to 58 - WEB FOUNDATION
+- Day 41: Introduction to HTML
 
 ## Day 59 to 81 - ADVANCED
 
