@@ -48,6 +48,9 @@ Learn data science, automation, build websites, games and apps!
 
 ## Day 41 to 58 - WEB FOUNDATION
 - Day 41: Introduction to HTML
+- Day 42: Intermediate HTML
+- Day 43: Introduction to CSS
+- Day 44: Intermediate CSS
 
 ## Day 59 to 81 - ADVANCED
 
